@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { Nav } from '../Styles/ComponentStyle'
+import logo from '../../src/logo.svg'
 
 function Header () {
   const [scrolled, setScrolled] = useState(false)
@@ -31,6 +32,11 @@ function Header () {
                     className='navbar-link'
                     to="/">
                   Dental Mini
+                  <img
+                    alt='logo'
+                    className='navbar-logo'
+                    src={logo}
+                  />
                 </Link>
             </h1>
             <div className='navbar-ux'>
