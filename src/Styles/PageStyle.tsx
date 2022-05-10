@@ -7,7 +7,8 @@ export const Home = styled.main`
   justify-content: center;
   align-items: center;
   background: aliceblue;
-  
+  padding-bottom: 4rem;
+
   .main-img-container{
     display:flex;
   }

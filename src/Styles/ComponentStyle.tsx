@@ -19,6 +19,10 @@ export const Nav = styled.nav<{ scrolled: boolean }>`
   .navbar-brand{
     font-size: 2.4rem;
   }
+  .navbar-logo{
+    width: 3rem;
+    height: 3rem;
+  }
   .navbar-ux{
     display: flex
   }
@@ -37,6 +41,7 @@ export const Nav = styled.nav<{ scrolled: boolean }>`
     font-size:inherit;
     padding: 0.5rem;
     border: 0;
+    display: flex;
     &.active{
       color: #e6448d;
       background: #004147;
@@ -47,6 +52,22 @@ export const Nav = styled.nav<{ scrolled: boolean }>`
   }
 `
 
+export const FooterStyle = styled.div`
+  background: rgba(40,230,173,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .footer-link-container{
+    display: flex;
+  }
+  .footer-link{
+    padding: 1rem;
+  }
+  .footer-link-img{
+    width: 3rem;
+    height: 3rem;
+  }
+`
 export const CardStyle = styled.div`
   display: flex;
   flex-direction: column;
