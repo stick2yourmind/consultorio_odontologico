@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Contact } from '../Styles/PageStyle'
-import Checked from '../assets/svg/Checked.svg'
-
+import checked from '../assets/svg/checked.svg'
 import { Form } from '../Components/Form'
 
 const ContactPage = () => {
@@ -25,7 +24,7 @@ const ContactPage = () => {
           !isFormSubmitted
             ? <Form handleSubmit={handleSubmit}/>
             : <div id="form-success">
-                <img id='form-success-img' src={Checked} alt=""/>
+                <img id='form-success-img' src={checked} alt=""/>
                 <p id='form-success-msg'> Mensaje enviado </p>
               </div>
           }
