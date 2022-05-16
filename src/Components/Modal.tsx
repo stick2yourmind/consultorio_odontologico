@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
-const ModalButton = () => {
+export const ModalButton = () => {
   const [modalOpen, setModalOpen] = useState(false)
 
   const close = () => setModalOpen(false)
@@ -18,9 +18,14 @@ const ModalButton = () => {
   )
 }
 
-const ModalBackdrop = ({ children, onClick }) => {
+interface ModalBackdropProps{
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  children: React.ReactNode;
+}
+
+const ModalBackdrop:React.FC<ModalBackdropProps> = ({ children, onClick }) => {
   return (
-    <motion.div
+    <motion.button
       onClick={onClick}
       className="backdrop"
       initial={{ opacity: 0 }}
@@ -28,7 +33,7 @@ const ModalBackdrop = ({ children, onClick }) => {
       exit={{ opacity: 0 }}
     >
       {children}
-    </motion.div>
+    </motion.button>
   )
 }
 //  Variant 'dropIn' for Modal
@@ -52,8 +57,12 @@ const dropIn = {
     opacity: 0
   }
 }
+interface ModalProps{
+  handleClose: React.MouseEventHandler<HTMLButtonElement>;
+  text: string;
+}
 
-const Modal = ({ handleClose, text }) => {
+const Modal:React.FC<ModalProps> = ({ handleClose, text }) => {
   return (
     <ModalBackdrop onClick={handleClose}>
         <motion.div
@@ -73,7 +82,7 @@ const Modal = ({ handleClose, text }) => {
 
 /* eslint-disable*/
 // let Modal = {Button: ModalButton, Backdrop: ModalBackdrop}
-Modal.Button = ModalButton
-Modal.Backdrop = ModalBackdrop
+// Modal.Button = ModalButton
+// Modal.Backdrop = ModalBackdrop
 /* eslint-enable */
 export default Modal
