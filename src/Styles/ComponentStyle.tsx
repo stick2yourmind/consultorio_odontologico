@@ -1,5 +1,6 @@
-
+import React from 'react'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 export const Nav = styled.nav<{ scrolled: boolean }>`
   position: fixed;
@@ -34,6 +35,9 @@ export const Nav = styled.nav<{ scrolled: boolean }>`
 
   .navbar-item{
     font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .navbar-link {
     color: #00695C;
@@ -43,7 +47,6 @@ export const Nav = styled.nav<{ scrolled: boolean }>`
     border: 0;
     display: flex;
     &.active{
-      color: #e6448d;
       background: #004147;
       color:aliceblue;
       padding: 1rem;
@@ -68,6 +71,7 @@ export const FooterStyle = styled.div`
     height: 3rem;
   }
 `
+
 export const CardStyle = styled.div`
   display: flex;
   flex-direction: column;
@@ -141,3 +145,142 @@ export const Gallery = styled.div`
   max-width: 120rem;
   justify-content:center;
 `
+
+export const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .form-title{
+    font-size: 3.5rem;
+    color: #00695C;
+    padding-bottom: 3rem;
+  }
+  .form-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & input,textarea{
+      line-height: 3rem;
+      width: 45rem;
+      color: #00695C;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    & textarea{
+      line-height: 2.5rem;
+      resize: none;
+      height: 18rem;
+    }
+  }
+  .error-field{
+    color: #e91e63;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.5rem 0;
+  }
+  .form-body-btn{
+    cursor: pointer;
+    background: #004147;
+    color:aliceblue;
+    padding: 1rem;
+    border-radius: 1.1rem;  
+    border-style: solid;
+    margin: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: .2s ease-in-out 0s;
+  }
+  .form-body-btn:hover{
+    transform: scale(1.2);
+  }
+  .form-body-btn:active{
+    transform: scale(1.1);
+  }
+`
+// -------------------------------------------------------------------------------------//
+//                                                                                      //
+//                               Motion components based                                //
+//                                                                                      //
+// -------------------------------------------------------------------------------------//
+
+const BackgroundModal = styled(motion.div)`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+const backgroundVariant = {
+  visible: { opacity: 1 },
+  hidden: { opacity: 0 }
+}
+interface BackgroundAnimatedProps {
+  children: React.ReactNode;
+}
+const BackgroundAnimated = ({ children }:BackgroundAnimatedProps) => (
+                                  <BackgroundModal
+                                    variants={backgroundVariant}
+                                    initial='hidden'
+                                    animate='visible'
+                                    transition={{ duration: 0.3 }}
+                                  >
+                                    {children}
+                                  </BackgroundModal>)
+
+const contentVariant = {
+  visible: {
+    opacity: 1,
+    y: '0'
+  },
+  hidden: {
+    opacity: 0,
+    y: '-100vh'
+    // transition: {
+    //   duration: 0.4,
+    //   type: 'spring',
+    //   damping: 250,
+    //   stiffness: 500
+    // }
+  }
+}
+
+const Content = styled(motion.div)`
+  height: 70rem;
+  width: 70rem;
+  background: rgba(255,255,255,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`
+interface ContentAnimatedProps {
+  children: React.ReactNode;
+}
+const ContentAnimated = ({ children }:ContentAnimatedProps) => (
+  <Content
+    variants={contentVariant}
+    initial='hidden'
+    animate='visible'
+    transition={{
+      delay: 0.3,
+      duration: 0.6,
+      type: 'spring',
+      damping: 19,
+      stiffness: 300
+    }}
+  >
+    {children}
+  </Content>)
+
+export const Modal = {
+  Background: BackgroundAnimated,
+  Content: ContentAnimated
+}

@@ -1,5 +1,6 @@
 import type { CardType } from '../../types'
 import { CardStyle } from '../Styles/ComponentStyle'
+
 const Card = ({ img, title, desc }: CardType) => {
   return (
     <CardStyle>

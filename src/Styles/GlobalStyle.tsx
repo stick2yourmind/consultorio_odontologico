@@ -14,7 +14,7 @@ export default createGlobalStyle`
     background: aliceblue;
   }
   main{
-    padding-top: 5.8rem;
+    padding-top: 6.8rem;
   }
   li {
     list-style: none;
@@ -22,5 +22,8 @@ export default createGlobalStyle`
   a{
     text-decoration: none;
   }
-  
+  ::selection {
+  color: aliceblue;
+  background: #147356;
+}
 `

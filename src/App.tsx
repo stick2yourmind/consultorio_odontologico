@@ -1,10 +1,10 @@
 import { ThemeProvider } from 'styled-components'
 import GlobalStyle from './Styles/GlobalStyle'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import Home from './Pages/HomePage'
+import HomePage from './Pages/HomePage'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
-
+import ContactPage from './Pages/ContactPage'
 const theme = { background: '#44d9e6' }
 
 function App () {
@@ -15,7 +15,8 @@ function App () {
       <BrowserRouter basename={import.meta.env.BASE_URL}>
                 <Header />
                     <Routes>
-                        <Route path="/" element={<Home/>} />
+                        <Route path="/" element={<HomePage/>} />
+                        <Route path="/contacto" element={<ContactPage/>} />
                         {/* <Route path="/productos/:categoryId" element={<ItemListContainer />}  />
             <Route path="/detalle/:itemId" element={<ItemDetailContainer />}  />
             <Route path="/cart" element={<Cart />}  />

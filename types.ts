@@ -1,7 +1,8 @@
 export interface CardType {
   img: string;
   title:string;
-  desc: string;
+  desc?: string;
+  className?: string;
 }
 
 /** The URL interface represents an object providing static methods used for creating object URLs. */

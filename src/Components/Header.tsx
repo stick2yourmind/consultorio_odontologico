@@ -12,14 +12,6 @@ function Header () {
         ? setScrolled(true)
         : ((window.scrollY < HEADER_HEIGHT_PX) && scrolled) &&
           setScrolled(false)
-
-      // if ((window.scrollY > HEADER_HEIGHT_PX) && !scrolled) {
-      //   console.log('scrolled actual: ', scrolled)
-      //   setScrolled(true)
-      // } else if ((window.scrollY < HEADER_HEIGHT_PX) && scrolled) {
-      //   console.log('scrolled actual: ', scrolled)
-      //   setScrolled(false)
-      // }
     }
     window.addEventListener('scroll', scrollFn, { passive: true })
     return () => window.removeEventListener('scroll', scrollFn)
