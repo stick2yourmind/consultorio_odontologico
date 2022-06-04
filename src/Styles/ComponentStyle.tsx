@@ -251,7 +251,7 @@ type CardTitleVariant = Pick<CSS.Properties, 'fontSize' | 'padding' | 'fontWeigh
 
 type CardImgVariant = Pick<CSS.Properties, 'width' | 'borderRadius'>;
 
-type CardVariant = Pick<CSS.Properties, 'display' | 'gridTemplateColumns' | 'gridTemplateRows'> & {
+export type CardVariant = Pick<CSS.Properties, 'display' | 'gridTemplateColumns' | 'gridTemplateRows'> & {
   title: CardTitleVariant,
   img: CardImgVariant,
   gridTemplateColumns: CSS.Properties,

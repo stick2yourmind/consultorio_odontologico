@@ -1,6 +1,6 @@
 import type { CardType } from '../../../types'
 
-export const cardsMock:CardType[] = [
+export const cardsMock:Pick<CardType, 'img' | 'title' | 'desc'>[] = [
   {
     img: new URL('../img/aparatos.jpg', import.meta.url).href,
     title: 'Ortodoncia',

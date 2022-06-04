@@ -1,10 +1,11 @@
-import CSS from 'csstype'
+// import CSS from 'csstype'
+import { CardVariant } from './src/Styles/ComponentStyle'
 export interface CardType {
   img: string;
   title:string;
   desc?: string;
   className?: string;
-  variant?: CSS.Properties;
+  variant: CardVariant;
 }
 
 /** The URL interface represents an object providing static methods used for creating object URLs. */
