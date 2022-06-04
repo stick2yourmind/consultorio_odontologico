@@ -1,6 +1,6 @@
 import { Formik, Form as FormikForm, useField, ErrorMessage } from 'formik'
 import React from 'react'
-import { validationSchema } from '../schemas/formSchema'
+import { validationSchema } from '../Schemas/formSchema'
 import { FormContainer } from '../Styles/ComponentStyle'
 
 interface TextFieldProps{

@@ -1,7 +1,5 @@
-import React from 'react'
 import styled from 'styled-components'
-import { motion } from 'framer-motion'
-
+import CSS from 'csstype'
 export const Nav = styled.nav<{ scrolled: boolean }>`
   position: fixed;
   z-index: 10;
@@ -55,7 +53,8 @@ export const Nav = styled.nav<{ scrolled: boolean }>`
   }
 `
 
-export const FooterStyle = styled.div`
+export const FooterStyle = styled.footer`
+  height: 5.5rem;
   background: rgba(40,230,173,1);
   display: flex;
   justify-content: center;
@@ -146,6 +145,13 @@ export const Gallery = styled.div`
   justify-content:center;
 `
 
+export const AppoinmentContainer = styled.div`
+  width: 80%;
+  height: auto;
+  max-width: 80rem;
+  background: black;
+`
+
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -194,6 +200,7 @@ export const FormContainer = styled.div`
     font-size: 1.5rem;
     font-weight: 700;
     transition: .2s ease-in-out 0s;
+    border: 0;
   }
   .form-body-btn:hover{
     transform: scale(1.2);
@@ -202,85 +209,90 @@ export const FormContainer = styled.div`
     transform: scale(1.1);
   }
 `
-// -------------------------------------------------------------------------------------//
-//                                                                                      //
-//                               Motion components based                                //
-//                                                                                      //
-// -------------------------------------------------------------------------------------//
-
-const BackgroundModal = styled(motion.div)`
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  z-index: 100;
-  display: flex;
-  justify-content: center;
+export const CarouselContainer = styled.div`
+  display: grid;
+  grid-template-columns: 5rem 60rem 5rem;
+  grid-template-rows: 7rem 65rem;
+  justify-items: center;
   align-items: center;
-`
-const backgroundVariant = {
-  visible: { opacity: 1 },
-  hidden: { opacity: 0 }
-}
-interface BackgroundAnimatedProps {
-  children: React.ReactNode;
-}
-const BackgroundAnimated = ({ children }:BackgroundAnimatedProps) => (
-                                  <BackgroundModal
-                                    variants={backgroundVariant}
-                                    initial='hidden'
-                                    animate='visible'
-                                    transition={{ duration: 0.3 }}
-                                  >
-                                    {children}
-                                  </BackgroundModal>)
+  border: 0.2rem solid black;
+  border-radius: 2rem;
 
-const contentVariant = {
-  visible: {
-    opacity: 1,
-    y: '0'
+  .step-title{
+    grid-column: 1/4;
+    grid-row: 1/2;
+    align-self: end;
+    font-size: 2rem;
+  }
+  #step-slider-backward{
+    grid-column: 1/2;
+    grid-row: 2/3;
+    width: 100%;
+  }
+  #card-professional-container{
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  #step-slider-forward{
+    grid-column: 3/4;
+    grid-row: 2/3;
+    width: 100%;
+    transform: rotate(180deg);
+  }
+  #card-specialty-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+`
+type CardTitleVariant = Pick<CSS.Properties, 'fontSize' | 'padding' | 'fontWeight'>;
+
+type CardImgVariant = Pick<CSS.Properties, 'width' | 'borderRadius'>;
+
+type CardVariant = Pick<CSS.Properties, 'display' | 'gridTemplateColumns' | 'gridTemplateRows'> & {
+  title: CardTitleVariant,
+  img: CardImgVariant,
+  gridTemplateColumns: CSS.Properties,
+  gridTemplateRows: CSS.Properties
+}
+
+type MinimalistCardStyleProps = {
+  variant : CardVariant
+}
+
+export const textFirstMCardVariant: CardVariant = {
+  gridTemplateColumns: '24rem',
+  gridTemplateRows: '6rem 12rem',
+  title: {
+    fontSize: '1.8rem',
+    padding: '0',
+    fontWeight: '400'
   },
-  hidden: {
-    opacity: 0,
-    y: '-100vh'
-    // transition: {
-    //   duration: 0.4,
-    //   type: 'spring',
-    //   damping: 250,
-    //   stiffness: 500
-    // }
+  img: {
+    width: '10rem',
+    borderRadius: '0'
   }
 }
-
-const Content = styled(motion.div)`
-  height: 70rem;
-  width: 70rem;
-  background: rgba(255,255,255,0.8);
-  display: flex;
-  justify-content: center;
+export const MinimalistCardStyle = styled.div<MinimalistCardStyleProps>`
+  display: grid;
+  grid-template-columns: ${props => props.variant.gridTemplateColumns};
+  grid-template-rows: ${props => props.variant.gridTemplateRows};
+  border: 0.1rem solid rgb(0,0,0);
+  background-color: rgb(255, 255, 255);
+  border-color: transparent;
+  border-radius: 2rem;
   align-items: center;
-  flex-direction: column;
+  justify-items: center;
+  box-shadow: 7px 14px 19px -7px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+  .title-minimalist-card{
+    font-size: ${props => props.variant.title.fontSize};
+    font-weight: ${props => props.variant.title.fontWeight};
+    padding: ${props => props.variant.title.padding};
+  }
+  .img-minimalist-card{
+    width: ${props => props.variant.img.width};
+    border-radius: ${props => props.variant.img.borderRadius};
+  }
 `
-interface ContentAnimatedProps {
-  children: React.ReactNode;
-}
-const ContentAnimated = ({ children }:ContentAnimatedProps) => (
-  <Content
-    variants={contentVariant}
-    initial='hidden'
-    animate='visible'
-    transition={{
-      delay: 0.3,
-      duration: 0.6,
-      type: 'spring',
-      damping: 19,
-      stiffness: 300
-    }}
-  >
-    {children}
-  </Content>)
-
-export const Modal = {
-  Background: BackgroundAnimated,
-  Content: ContentAnimated
-}

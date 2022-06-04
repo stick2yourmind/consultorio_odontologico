@@ -27,7 +27,7 @@ export const Contact = styled.main`
   padding-top: 12rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 600px 100px;
+  grid-template-rows: 59.7rem 100px;
   padding-bottom: 5.5rem;
   background-size: cover;
 
@@ -85,4 +85,12 @@ export const Contact = styled.main`
     padding: 1rem;
     font-weight: 600;
   }
+`
+
+export const AppointmentContainer = styled.main`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 87.2rem;
+  background: rgb(243, 244, 246); 
 `

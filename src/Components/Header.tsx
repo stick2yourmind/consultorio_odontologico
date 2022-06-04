@@ -18,6 +18,7 @@ function Header () {
   }
   , [scrolled])
   return (
+        <header>
         <Nav scrolled={scrolled}>
             <h1 className='navbar-brand'>
                 <Link
@@ -62,6 +63,7 @@ function Header () {
             </ul>
             </div>
         </Nav>
+        </header>
   )
 }
 
