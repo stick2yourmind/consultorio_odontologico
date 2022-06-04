@@ -1,8 +1,8 @@
 import React from 'react'
-import type { CardType } from '../../types'
+import type { MCardType } from '../../types'
 import { MinimalistCardStyle } from '../Styles/ComponentStyle'
 
-const MinimalistCard:React.FC<CardType> = ({ img, title, desc, variant }) => {
+const MinimalistCard:React.FC<MCardType> = ({ img, title, desc, variant }) => {
   return (
     <MinimalistCardStyle variant={variant}>
       <h6 className='title-minimalist-card'> {title} </h6>

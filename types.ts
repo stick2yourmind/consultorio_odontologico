@@ -5,6 +5,8 @@ export interface CardType {
   title:string;
   desc?: string;
   className?: string;
+}
+export type MCardType = CardType & {
   variant: CardVariant;
 }
 
