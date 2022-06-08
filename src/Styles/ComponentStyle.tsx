@@ -244,6 +244,9 @@ export const CarouselContainer = styled.div`
     width: 100%;
     transform: rotate(180deg);
   }
+  #step-slider-backward:hover, #step-slider-forward:hover {
+    filter: invert(56%) sepia(95%) saturate(378%) hue-rotate(120deg) brightness(93%) contrast(91%);
+  }
   #card-specialty-container{
     display: flex;
     flex-wrap: wrap;
@@ -312,6 +315,10 @@ export const CarouselContainer = styled.div`
     padding: 1rem;
     border-radius: 0.2rem;
     font-size: 1.5rem;
+    transition: all 0.2s ease-in-out;
+  }
+  .card-appointment-filter-button:hover {
+    transform: scale(1.1);
   }
   .card-appointment-move{
     grid-column: 1/2;
@@ -330,6 +337,11 @@ export const CarouselContainer = styled.div`
     border-radius: 0.3rem;
     color: aliceblue;
     font-weight: 700;
+    transition: all 0.2s ease-in-out;
+  }
+  .card-appointment-move-button:hover {
+  background: hsl(169.9, 79%, 42.9%);
+  border-color: hsl(169.9, 79%, 42.9%);
   }
 `
 type CardTitleVariant = Pick<CSS.Properties, 'fontSize' | 'padding' | 'fontWeight' | 'gridColumn' | 'gridRow'>;
@@ -393,6 +405,10 @@ export const MinimalistCardStyle = styled.div<MinimalistCardStyleProps>`
   align-items: center;
   justify-items: center;
   box-shadow: 7px 14px 19px -7px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  &:hover{
+    transform: scale(1.1)
+  }
   .title-minimalist-card{
     font-size: ${props => props.variant.title.fontSize};
     font-weight: ${props => props.variant.title.fontWeight};
