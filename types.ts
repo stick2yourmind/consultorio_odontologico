@@ -1,5 +1,6 @@
 // import CSS from 'csstype'
 import { CardVariant } from './src/Styles/ComponentStyle'
+
 export interface CardType {
   img: string;
   title:string;
@@ -27,4 +28,20 @@ export interface URL {
   readonly searchParams: URLSearchParams;
   username: string;
   toJSON(): string;
+}
+
+export interface TextFieldProps{
+  label: string,
+  name: string,
+  type: string,
+  placeholder: string,
+  inputmode?: string
+}
+
+export interface FormValues{
+  firstName: string,
+  lastName: string,
+  phoneNumber: string,
+  email: string,
+  message: string
 }

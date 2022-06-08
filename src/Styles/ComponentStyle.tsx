@@ -183,11 +183,76 @@ export const FormContainer = styled.div`
       height: 18rem;
     }
   }
+  .error-field-container{
+    display: flex;
+  }
   .error-field{
     color: #e91e63;
     font-size: 1.2rem;
     font-weight: 600;
     padding: 0.5rem 0;
+    background-color: rgba(255,255,255,0.7)
+  }
+  .form-body-btn{
+    cursor: pointer;
+    background: #004147;
+    color:aliceblue;
+    padding: 1rem;
+    border-radius: 1.1rem;  
+    border-style: solid;
+    margin: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: .2s ease-in-out 0s;
+    border: 0;
+  }
+  .form-body-btn:hover{
+    transform: scale(1.2);
+  }
+  .form-body-btn:active{
+    transform: scale(1.1);
+  }
+`
+export const FormAppointmentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .form-title{
+    font-size: 3.5rem;
+    color: #00695C;
+    padding-bottom: 3rem;
+  }
+  .form-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & input,textarea{
+      line-height: 3rem;
+      width: 45rem;
+      color: #00695C;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    & textarea{
+      line-height: 2.5rem;
+      resize: none;
+      height: 18rem;
+    }
+  }
+  .error-field-container{
+    display: flex;
+  }
+  .error-field{
+    color: #e91e63;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    background-color: rgba(255,255,255,0.7)
   }
   .form-body-btn{
     cursor: pointer;
@@ -340,8 +405,36 @@ export const CarouselContainer = styled.div`
     transition: all 0.2s ease-in-out;
   }
   .card-appointment-move-button:hover {
-  background: hsl(169.9, 79%, 42.9%);
-  border-color: hsl(169.9, 79%, 42.9%);
+    background: hsl(169.9, 79%, 42.9%);
+    border-color: hsl(169.9, 79%, 42.9%);
+  }
+  #card-formContact-container{
+    align-self: start;
+    padding-top: 4rem;
+  }
+  #card-confirmationMsg-container{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    border: 0.2rem solid black;
+    padding: 12rem 8rem;
+    border-radius: 3rem;
+    align-self: start;
+    margin-top: 4rem;
+  }
+  .card-confirmationMsg-msg-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .card-confirmationMsg-msg{
+    font-size: 2.5rem;
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+  .card-confirmationMsg-img{
+    height: 6rem;
+    align-self: center;
   }
 `
 type CardTitleVariant = Pick<CSS.Properties, 'fontSize' | 'padding' | 'fontWeight' | 'gridColumn' | 'gridRow'>;

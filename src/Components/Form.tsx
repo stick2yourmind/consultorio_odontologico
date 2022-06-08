@@ -1,22 +1,9 @@
-import { Formik, Form as FormikForm, useField, ErrorMessage } from 'formik'
-import React from 'react'
+import { Formik, Form as FormikForm } from 'formik'
+import TextField from '../Components/TextField'
+import TextAreaField from './TextAreaField'
 import { validationSchema } from '../Schemas/formSchema'
 import { FormContainer } from '../Styles/ComponentStyle'
-
-interface TextFieldProps{
-  label: string,
-  name: string,
-  type: string,
-  placeholder: string
-}
-
-interface FormValues{
-  firstName: string,
-  lastName: string,
-  phoneNumber: string,
-  email: string,
-  message: string
-}
+import { FormValues } from '../../types'
 
 const initForm = {
   firstName: '',
@@ -24,31 +11,6 @@ const initForm = {
   phoneNumber: '',
   email: '',
   message: ''
-}
-
-const TextField:React.FC<TextFieldProps> = ({ name, type, placeholder }) => {
-  const [field, meta] = useField({ name, type, placeholder })
-  return (
-    <div className='TextFieldContainer'>
-        {/* <label className='labelField' htmlFor={field.name}>{label}</label> */}
-        <input className={`textField ${meta.touched && meta.error ? 'isInvalid' : ''} `}
-            {...field} name={name} type={type} placeholder={placeholder} />
-        <ErrorMessage className='error-field' name={field.name} component="div" />
-    </div>
-  )
-}
-
-const TextAreaField:React.FC<TextFieldProps> = ({ name, type, placeholder }) => {
-  const [field, meta] = useField({ name, type, placeholder })
-  return (
-    <div className='TextFieldContainer'>
-        {/* <label className='labelField' htmlFor={field.name}>{label}</label> */}
-        <textarea className={`textField ${meta.touched && meta.error ? 'isInvalid' : ''} `}
-            {...field} name={name} placeholder={placeholder} >
-        </textarea>
-        <ErrorMessage className='error-field' name={field.name} component="div" />
-    </div>
-  )
 }
 
 export const Form = () => {

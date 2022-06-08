@@ -5,6 +5,8 @@ import MinimalistCard from '../Components/MinimalistCard'
 import specialities from '../assets/mocks/specialties'
 import appointments from '../assets/mocks/appointmentMock'
 import { whiteningProfessionals, occlusalPlateProfessionals, dentalPlaqueProfessionals, cariesPlaqueProfessionals } from '../assets/mocks/professionals'
+import FormAppointment from './FormAppointment'
+import okSvg from '../assets/svg/checked.svg'
 // import dateSlider from '../assets/svg/date-slider-forward.svg'
 // import blanqueamiento from '../assets/svg/appointment-specialties/blanqueamiento.svg'
 
@@ -152,14 +154,31 @@ const AppointmentComponent:React.FC<movementTypeProps> = ({ back, next }) => {
     </>
   )
 }
-const FormContactComponent = () => {
+const FormContactComponent:React.FC<movementTypeProps> = ({ back, next }) => {
   return (
-    <h3 className='step-title'>Ingrese datos de contacto</h3>
+      <>
+        <h3 className='step-title'>Datos de contacto</h3>
+        {back && <img className='step-slider' id='step-slider-backward' src={stepSliderBackward} alt="Volver un paso anterior" />}
+        <div id="card-formContact-container">
+          <FormAppointment />
+        </div>
+        {next && <img className='step-slider' id='step-slider-forward' src={stepSliderBackward} alt="Volver un paso anterior" />}
+      </>
   )
 }
-const ConfirmationMsgComponent = () => {
+const ConfirmationMsgComponent:React.FC<movementTypeProps> = ({ back, next }) => {
   return (
-    <h3 className='step-title'>Muchas gracias por confirmar el turno!</h3>
+        <>
+          <h3 className='step-title'>Turno reservado!</h3>
+          {back && <img className='step-slider' id='step-slider-backward' src={stepSliderBackward} alt="Volver un paso anterior" />}
+          <div id="card-confirmationMsg-container">
+            <div className="card-confirmationMsg-msg-container">
+              <p className='card-confirmationMsg-msg'>Muchas gracias por confirmar el turno para el dia {`${'Jueves'} ${'26'}/${'05'}/${'2022'} a las ${'16'}:${'15'}`}</p>
+              <img className='card-confirmationMsg-img' src={okSvg} alt="confirmation image"/>
+            </div>
+          </div>
+          {next && <img className='step-slider' id='step-slider-forward' src={stepSliderBackward} alt="Volver un paso anterior" />}
+        </>
   )
 }
 
@@ -167,8 +186,8 @@ const stepSelector = {
   specialty: SpecialtyComponent({ back: false, next: false }),
   professional: ProfessionalComponent({ back: true, next: false }),
   appointment: AppointmentComponent({ back: true, next: false }),
-  formContact: FormContactComponent(),
-  confirmationMsg: ConfirmationMsgComponent()
+  formContact: FormContactComponent({ back: true, next: false }),
+  confirmationMsg: ConfirmationMsgComponent({ back: false, next: false })
 }
 
 const CarouselStep : React.FC<AppointmentStepProp> = ({ currentStep }) => {
