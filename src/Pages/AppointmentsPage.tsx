@@ -6,7 +6,7 @@ const AppointmentsPage = () => {
   const { esp: speciality } = useParams()
   return (
     <AppointmentContainer>
-        <CarouselStep currentStep='specialty' />
+        <CarouselStep currentStep='appointment' />
         {speciality}
     </AppointmentContainer>
   )

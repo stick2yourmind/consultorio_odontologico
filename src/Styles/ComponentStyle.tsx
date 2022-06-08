@@ -232,6 +232,11 @@ export const CarouselContainer = styled.div`
   #card-professional-container{
     grid-column: 2/3;
     grid-row: 2/3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
   }
   #step-slider-forward{
     grid-column: 3/4;
@@ -245,11 +250,91 @@ export const CarouselContainer = styled.div`
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  #card-appointment-container{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 50% 40%;
+    justify-items: center;
+    align-items: center;
+    padding-top: 3rem;
+  }
+  .card-appointment-days{
+    grid-column: 1/2 ;
+    grid-row: 2/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.4rem;
+  }
+  .card-appointment-days-item{
+    border: 0.1rem solid #0000003b;
+    background-color: #FDFDFD;
+    border-radius: 2rem;
+    overflow: clip;
+  }
+  .card-appointment-days-item-title{
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .card-appointment-days-item-date{
+    background-color: hsla(170, 79.2%, 52.9%, 1);
+    font-size: 1.8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem 4rem;
+  }
+  .card-appointment-days-item-date:hover{
+    color: aliceblue;
+    background-color: hsla(170, 79.2%, 42.9%, 1);
+  }
+  .card-appointment-filter{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    gap: 2rem;
+    display: flex;
+  }
+  .card-appointment-filter-button{
+    background: transparent;
+    background: transparent;
+    border: 0.1rem solid black;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    font-size: 1.5rem;
+  }
+  .card-appointment-move{
+    grid-column: 1/2;
+    grid-row: 3/4;
+    align-self: start;
+    align-self: start;
+    padding-top: 2rem;
+    display: flex;
+    gap: 3rem;
+  }
+  .card-appointment-move-button{
+    background-color: #004147;
+    border: 0.2rem solid black;
+    padding: 1rem 1.3rem;
+    font-size: 1.1rem;
+    border-radius: 0.3rem;
+    color: aliceblue;
+    font-weight: 700;
   }
 `
-type CardTitleVariant = Pick<CSS.Properties, 'fontSize' | 'padding' | 'fontWeight'>;
+type CardTitleVariant = Pick<CSS.Properties, 'fontSize' | 'padding' | 'fontWeight' | 'gridColumn' | 'gridRow'>;
 
-type CardImgVariant = Pick<CSS.Properties, 'width' | 'borderRadius'>;
+type CardImgVariant = Pick<CSS.Properties, 'width' | 'borderRadius' | 'gridColumn' | 'gridRow'>;
 
 export type CardVariant = Pick<CSS.Properties, 'display' | 'gridTemplateColumns' | 'gridTemplateRows'> & {
   title: CardTitleVariant,
@@ -268,11 +353,33 @@ export const textFirstMCardVariant: CardVariant = {
   title: {
     fontSize: '1.8rem',
     padding: '0',
-    fontWeight: '400'
+    fontWeight: '400',
+    gridColumn: '1/2',
+    gridRow: '1/2'
   },
   img: {
     width: '10rem',
-    borderRadius: '0'
+    borderRadius: '0',
+    gridColumn: '1/2',
+    gridRow: '2/3'
+  }
+}
+
+export const imgFirstMCardVariant: CardVariant = {
+  gridTemplateColumns: '24rem',
+  gridTemplateRows: '6rem 12rem',
+  title: {
+    fontSize: '1.8rem',
+    padding: '0',
+    fontWeight: '400',
+    gridColumn: '1/2',
+    gridRow: '2/3'
+  },
+  img: {
+    width: '10rem',
+    borderRadius: '50%',
+    gridColumn: '1/2',
+    gridRow: '1/2'
   }
 }
 export const MinimalistCardStyle = styled.div<MinimalistCardStyleProps>`
@@ -290,9 +397,15 @@ export const MinimalistCardStyle = styled.div<MinimalistCardStyleProps>`
     font-size: ${props => props.variant.title.fontSize};
     font-weight: ${props => props.variant.title.fontWeight};
     padding: ${props => props.variant.title.padding};
+    grid-column: ${props => props.variant.title.gridColumn};
+    grid-row: ${props => props.variant.title.gridRow};
+    user-select: none;
   }
   .img-minimalist-card{
     width: ${props => props.variant.img.width};
     border-radius: ${props => props.variant.img.borderRadius};
+    grid-column: ${props => props.variant.img.gridColumn};
+    grid-row: ${props => props.variant.img.gridRow};
+    user-select: none;
   }
 `

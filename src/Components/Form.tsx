@@ -51,12 +51,7 @@ const TextAreaField:React.FC<TextFieldProps> = ({ name, type, placeholder }) => 
   )
 }
 
-interface FormProps{
-  onSubmit?: React.FormEventHandler;
-  handleSubmit: Function;
-}
-
-export const Form:React.FC<FormProps> = ({ handleSubmit }) => {
+export const Form = () => {
   const onSubmitHandler = (values:FormValues) => {
     const formData = {
       firstName: values.firstName,
@@ -65,8 +60,8 @@ export const Form:React.FC<FormProps> = ({ handleSubmit }) => {
       email: values.email,
       message: values.message
     }
-    handleSubmit()
     console.log(formData)
+    // handleSubmit()
     // setCartOrder(cart, userData).then((cartOrder) => {
     //   setSubmitFinished(cartOrder)
     //   clearCart()
