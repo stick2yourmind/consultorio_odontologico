@@ -3,7 +3,7 @@ import TextField from '../Components/TextField'
 import TextAreaField from './TextAreaField'
 import { validationSchema } from '../Schemas/formSchema'
 import { FormContainer } from '../Styles/ComponentStyle'
-import { FormValues } from '../../types'
+import { FormValues, FormContactPageType } from '../../types'
 
 const initForm = {
   firstName: '',
@@ -13,7 +13,7 @@ const initForm = {
   message: ''
 }
 
-export const Form = () => {
+export const Form:React.FC<FormContactPageType> = () => {
   const onSubmitHandler = (values:FormValues) => {
     const formData = {
       firstName: values.firstName,

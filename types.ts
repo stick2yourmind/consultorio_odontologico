@@ -45,3 +45,7 @@ export interface FormValues{
   email: string,
   message: string
 }
+
+export interface FormContactPageType {
+  handleSubmit?: (e: React.FormEvent<HTMLFormElement>)=> void
+}
