@@ -21,7 +21,7 @@ const appointmentSchema = Yup.object({
   email: Yup.string()
     .email('Correo electronico invalido')
     .required('El correo electronico es requerido'),
-  phoneNumber: Yup.string()
+  phone: Yup.string()
     .matches(phoneRegExp, 'Telefono invalido')
     .required('El telefono es requerido')
 })

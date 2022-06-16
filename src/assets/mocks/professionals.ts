@@ -1,4 +1,6 @@
-export const whiteningProfessionals = [
+import type { CardType } from '../../../types'
+
+export const whiteningProfessionals:CardType[] = [
   {
     title: 'David Suarez',
     img: new URL('../img/professionals/whitening/david-suarez.jpg', import.meta.url).href,
@@ -21,7 +23,7 @@ export const whiteningProfessionals = [
   }
 ]
 
-export const occlusalPlateProfessionals = [
+export const occlusalPlateProfessionals:CardType[] = [
   {
     title: 'Fabiana Diaz',
     img: new URL('../img/professionals/occlusal-plate/fabiana-diaz.jpg', import.meta.url).href,
@@ -34,7 +36,7 @@ export const occlusalPlateProfessionals = [
   }
 ]
 
-export const dentalPlaqueProfessionals = [
+export const dentalPlaqueProfessionals:CardType[] = [
   {
     title: 'Carlos Garcia',
     img: new URL('../img/professionals/dental-plaque/carlos-garcia.jpg', import.meta.url).href,
@@ -52,7 +54,7 @@ export const dentalPlaqueProfessionals = [
   }
 ]
 
-export const cariesPlaqueProfessionals = [
+export const cariesPlaqueProfessionals:CardType[] = [
   {
     title: 'Camila Flores',
     img: new URL('../img/professionals/caries/camila-flores.jpg', import.meta.url).href,

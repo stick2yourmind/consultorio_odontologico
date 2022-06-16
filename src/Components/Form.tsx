@@ -3,7 +3,7 @@ import TextField from '../Components/TextField'
 import TextAreaField from './TextAreaField'
 import { validationSchema } from '../Schemas/formSchema'
 import { FormContainer } from '../Styles/ComponentStyle'
-import { FormValues, FormContactPageType } from '../../types'
+import { FormContactPageValues, FormContactPageType } from '../../types'
 
 const initForm = {
   firstName: '',
@@ -14,7 +14,7 @@ const initForm = {
 }
 
 export const Form:React.FC<FormContactPageType> = () => {
-  const onSubmitHandler = (values:FormValues) => {
+  const onSubmitHandler = (values:FormContactPageValues) => {
     const formData = {
       firstName: values.firstName,
       lastName: values.lastName,

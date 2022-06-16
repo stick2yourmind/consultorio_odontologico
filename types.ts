@@ -1,5 +1,6 @@
 // import CSS from 'csstype'
 import { CardVariant } from './src/Styles/ComponentStyle'
+import React from 'react'
 
 export interface CardType {
   img: string;
@@ -8,8 +9,9 @@ export interface CardType {
   className?: string;
   _id?: string;
 }
-export type MCardType = CardType & {
+export type MCardType<T> = CardType & {
   variant: CardVariant;
+  onClick?: React.MouseEventHandler<T> | undefined
 }
 
 /** The URL interface represents an object providing static methods used for creating object URLs. */
@@ -39,6 +41,12 @@ export interface TextFieldProps{
 }
 
 export interface FormValues{
+  fullName: string,
+  dni: string,
+  phone: string,
+  email: string
+}
+export interface FormContactPageValues{
   firstName: string,
   lastName: string,
   phoneNumber: string,
@@ -49,3 +57,10 @@ export interface FormValues{
 export interface FormContactPageType {
   handleSubmit?: (e: React.FormEvent<HTMLFormElement>)=> void
 }
+
+export interface Data{
+  specialty: string | null,
+  professional: string | null,
+  appointment: string | null
+}
+export type PartialData = Partial<Data> | null
