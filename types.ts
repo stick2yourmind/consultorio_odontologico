@@ -37,7 +37,8 @@ export interface TextFieldProps{
   name: string,
   type: string,
   placeholder: string,
-  inputmode?: string
+  inputmode?: string,
+  focus?: boolean
 }
 
 export interface FormValues{

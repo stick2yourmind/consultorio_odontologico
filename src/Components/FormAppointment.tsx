@@ -38,7 +38,7 @@ const FormAppointment = () => {
           onSubmit={onSubmitHandler}
       >
           <Form className='form-body'>
-              <TextField label='fullName' name='fullName' type='text' placeholder="Nombre completo"/>
+              <TextField label='fullName' name='fullName' type='text' placeholder="Nombre completo" focus={true}/>
               <TextField label='dni' name='dni' type='text' placeholder="DNI"/>
               <TextField label='email' name='email' type='email' placeholder="Email"/>
               <TextField label='phone' name='phone' type='tel' placeholder="Telefono"/>
