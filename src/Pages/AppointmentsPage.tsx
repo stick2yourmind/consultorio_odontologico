@@ -22,7 +22,6 @@ const AppointmentsPage = () => {
   const dispatch = useDispatch()
   return (
     <AppointmentContainer>
-        {/* <CarouselStep currentStep='confirmationMsg'/> */}
         <Slider back={steps[step].back} next={steps[step].next}
           backHandler={() => dispatch(backward(null))}
           nextHandler={() => dispatch(forward(null))}>

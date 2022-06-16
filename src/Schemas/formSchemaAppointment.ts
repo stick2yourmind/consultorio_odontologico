@@ -9,11 +9,13 @@ const appointmentSchema = Yup.object({
     .max(50, 'Maximo 30 caracteres')
     .required('El nombre es requerido'),
   dni: Yup.number()
+    .typeError('DNI invalido, solo debe contener números')
     .integer('DNI invalido, debe ser un número entero')
-    .test('Is positive?',
+    .test('¿Es positivo?',
       'DNI invalido, debe ser número positivo',
       (value) => {
-        if (value && value > 0) return true
+        console.log('before')
+        if (value && !Number.isNaN(value) && value > 0) return true
         return false
       })
     .min(15e6, 'DNI invalido')

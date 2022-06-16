@@ -34,7 +34,7 @@ export const Form:React.FC<FormContactPageType> = () => {
           onSubmit={onSubmitHandler}
       >
           <FormikForm className='form-body'>
-              <TextField label='Nombre' name='firstName' type='text' placeholder="Nombre" focus={true}/>
+              <TextField label='Nombre' name='firstName' type='text' placeholder="Nombre" focus/>
               <TextField label='Apellido' name='lastName' type='text' placeholder="Apellido"/>
               <TextField label='Telefono' name='phoneNumber' type='tel' placeholder="Telefono"/>
               <TextField label='Email' name='email' type='email' placeholder="Email"/>
