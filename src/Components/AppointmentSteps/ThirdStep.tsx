@@ -1,10 +1,19 @@
 import { useDispatch } from 'react-redux'
 import { forward } from '../../app/features/appointment/appointmentSlice'
-import { getDayName, getDate, getMonth, getHour, getMinute } from '../../utils/date'
+import { getDayName, getDate, getMonth, getHour, getMinute, groupByDay } from '../../utils/date'
 import appointments from '../../assets/mocks/appointmentMock'
-import { PartialData } from '../../../types'
+import { PartialData, FetchedAppointmentsStep } from '../../../types'
+import useAxios from '../../hooks/useAxios'
+import axiosDB from '../../app/api/axiosDB'
 
 const ThirdStep = () => {
+  const [appointments2, error, loading]:FetchedAppointmentsStep = useAxios({
+    axiosInstance: axiosDB,
+    method: 'get',
+    url: '/appointments'
+  })
+  const groupedAppointments = groupByDay(appointments2)
+  console.log(groupedAppointments)
   const dispatch = useDispatch()
   const nextHandler = (data:PartialData = null) => dispatch(forward(data))
   return (
@@ -18,7 +27,7 @@ const ThirdStep = () => {
       </div>
       <div className='card-appointment-days'>
         <div className='card-appointment-days-item'>
-          <h6 className='card-appointment-days-item-title'>{`${getDayName(appointments[0][0])} ${getDate(appointments[0][0])}/${1 + (getMonth(appointments[0][0]) || 0)}`}</h6>
+          <h6 className='card-appointment-days-item-title'>{`${getDayName(appointments[0][0].date)} ${getDate(appointments[0][0])}/${1 + (getMonth(appointments[0][0]) || 0)}`}</h6>
           <h6 onClick={() => nextHandler({ appointment: appointments[0][0] })} className='card-appointment-days-item-date'>{`${getHour(appointments[0][0])}:${getMinute(appointments[0][0])}`}</h6>
           <h6 onClick={() => nextHandler({ appointment: appointments[0][1] })} className='card-appointment-days-item-date'>{`${getHour(appointments[0][1])}:${getMinute(appointments[0][1])}`}</h6>
           <h6 onClick={() => nextHandler({ appointment: appointments[0][2] })} className='card-appointment-days-item-date'>{`${getHour(appointments[0][2])}:${getMinute(appointments[0][2])}`}</h6>
