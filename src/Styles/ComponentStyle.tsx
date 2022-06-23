@@ -341,7 +341,7 @@ export const CarouselContainer = styled.div`
     align-items: center;
     gap: 2.4rem;
   }
-  .card-appointment-days-item{
+  /* .card-appointment-days-item{
     border: 0.1rem solid #0000003b;
     background-color: #FDFDFD;
     border-radius: 2rem;
@@ -366,7 +366,7 @@ export const CarouselContainer = styled.div`
   .card-appointment-days-item-date:hover{
     color: aliceblue;
     background-color: hsla(170, 79.2%, 42.9%, 1);
-  }
+  } */
   .card-appointment-filter{
     grid-column: 1/2;
     grid-row: 1/2;
@@ -516,5 +516,37 @@ export const MinimalistCardStyle = styled.div<MinimalistCardStyleProps>`
     grid-column: ${props => props.variant.img.gridColumn};
     grid-row: ${props => props.variant.img.gridRow};
     user-select: none;
+  }
+`
+export const CardAppointmentContainer = styled.li`
+  border: 0.1rem solid #0000003b;
+  background-color: #FDFDFD;
+  border-radius: 2rem;
+  overflow: clip;
+  min-width: 16.4rem;
+  
+  &:nth-child(n+4){
+    display:none;
+  }
+  
+  .card-appointment-days-item-title{
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .card-appointment-days-item-date{
+    background-color: hsla(170, 79.2%, 52.9%, 1);
+    font-size: 1.8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem 4rem;
+  }
+  .card-appointment-days-item-date:hover{
+    color: aliceblue;
+    background-color: hsla(170, 79.2%, 42.9%, 1);
   }
 `

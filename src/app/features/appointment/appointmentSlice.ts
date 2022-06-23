@@ -16,7 +16,7 @@ interface contactInfoIF{
 interface dataInterfaceIF{
   specialty: string | null,
   professional: string | null,
-  appointment: string | null,
+  appointment: Date | null,
   contactInfo: contactInfoIF
 }
 interface appointmentStateIF {
