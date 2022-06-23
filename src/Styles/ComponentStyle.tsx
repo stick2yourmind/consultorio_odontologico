@@ -175,6 +175,7 @@ export const FormContainer = styled.div`
       color: #00695C;
       font-weight: 700;
       font-size: 1.3rem;
+      -webkit-text-fill-color: hsl(174deg 39% 53%);
     }
 
     & textarea{
@@ -236,6 +237,7 @@ export const FormAppointmentContainer = styled.div`
       color: #00695C;
       font-weight: 700;
       font-size: 1.3rem;
+      -webkit-text-fill-color: hsl(174deg 39% 53%);
     }
 
     & textarea{
