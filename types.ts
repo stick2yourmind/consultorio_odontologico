@@ -63,7 +63,8 @@ export interface FormContactPageType {
 export interface Data{
   specialty: string | null,
   professional: string | null,
-  appointment: Date | null
+  appointmentId: Date | string | null,
+  appointment: Date | string | null
 }
 export type PartialData = Partial<Data> | null
 
@@ -108,9 +109,50 @@ export interface AppointmentsData {
   date: Date,
   dayName: string
 }
+// Response's type for 'data' at /appointments/:id endpoint
+export interface FormAppointmentData {
+  acknowledged: boolean
+}
+
 // Returned type from useAxios, when fetching /specialties endpoint
 export type FetchedSpecialtyStep = [SpecialtyData[], ErrorUseAxios, LoadingUseAxios]
-// Returned type from useAxios, when fetching /specialties endpoint
+// Returned type from useAxios, when fetching /professionals endpoint
 export type FetchedProfessionalStep = [ProfessionalData[], ErrorUseAxios, LoadingUseAxios]
-// Returned type from useAxios, when fetching /specialties endpoint
+// Returned type from useAxios, when fetching /appointments endpoint
 export type FetchedAppointmentsStep = [AppointmentsData[], ErrorUseAxios, LoadingUseAxios]
+// Returned type from useAxios, when fetching /appointments/:id endpoint
+export type FetchedFormAppointmentStep = [FormAppointmentData, ErrorUseAxios, LoadingUseAxios]
+
+// --------------- Types used at useAxiosFunction -----------------
+
+export interface PutAppointmentAPI {
+  professionalId: string,
+  specialtyId: string,
+  user: {
+    dni: string,
+    email: string,
+    fullName: string,
+    phone: string
+  }
+
+}
+
+export interface AxiosFetchParams{
+  axiosInstance:AxiosInstance,
+  method: 'get' | 'post' | 'put' | 'delete',
+  url: string,
+  requestConfig?:PutAppointmentAPI
+}
+export interface ResPutAppointmentAPI {
+    data: {
+      acknowledged: boolean
+  },
+  error: boolean,
+  statusCode: number
+}
+export type ReturnRespUseAxiosFn = ResPutAppointmentAPI & FormAppointmentData & AppointmentsData[] & ProfessionalData[] & SpecialtyData[]
+export type ReturnErrUseAxiosFn = string | false
+export type ReturnLoadUseAxiosFn = boolean
+export type CtrlUseAxiosFn = AbortController
+export type ReturnUseAxiosFn = (configObj: AxiosFetchParams) => Promise<void>
+export type ReturnUseAxiosFunction = [ReturnRespUseAxiosFn, ReturnErrUseAxiosFn, ReturnLoadUseAxiosFn, ReturnUseAxiosFn]

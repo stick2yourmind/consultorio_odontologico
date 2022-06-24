@@ -17,6 +17,7 @@ interface dataInterfaceIF{
   specialty: string | null,
   professional: string | null,
   appointment: Date | null,
+  appointmentId: string | null,
   contactInfo: contactInfoIF
 }
 interface appointmentStateIF {
@@ -30,6 +31,7 @@ const initialState: appointmentStateIF = {
     specialty: null,
     professional: null,
     appointment: null,
+    appointmentId: null,
     contactInfo: {
       fullName: null,
       dni: null,
@@ -70,9 +72,12 @@ export const appointmentSlice = createSlice({
       state.data = initialState.data
       console.log('current state')
       console.log(current(state))
+    },
+    update: (state, action) => {
+      state.data = { ...state.data, ...action.payload }
     }
   }
 })
 
-export const { forward, backward, setStep } = appointmentSlice.actions
+export const { forward, backward, setStep, update } = appointmentSlice.actions
 export default appointmentSlice.reducer

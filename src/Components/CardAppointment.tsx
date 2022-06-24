@@ -20,7 +20,7 @@ const CardAppointment:React.FC<CardAppointmentProps> = ({ dates }) => {
       {
         dates.map((data) =>
             <h6 key={data._id} className='card-appointment-days-item-date'
-            onClick={() => nextHandler({ appointment: data.date })}>
+            onClick={() => nextHandler({ appointmentId: data._id, appointment: data.date })}>
               {`${getHour(data.date)}:${getMinute(data.date)}`}
             </h6>
         )

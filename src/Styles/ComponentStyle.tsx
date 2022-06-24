@@ -526,6 +526,7 @@ export const CardAppointmentContainer = styled.li`
   border-radius: 2rem;
   overflow: clip;
   min-width: 16.4rem;
+  align-self: flex-start;
   
   &:nth-child(n+4){
     display:none;
