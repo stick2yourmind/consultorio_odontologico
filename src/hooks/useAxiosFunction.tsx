@@ -25,8 +25,7 @@ const useAxiosFunction = ():ReturnUseAxiosFunction => {
       const ctrl = new AbortController()
       setController(ctrl)
       const res = await axiosInstance[method](url, {
-        ...requestConfig,
-        signal: ctrl.signal
+        ...requestConfig
       })
       console.log('res.data useAxiosFn')
       console.log(res.data)

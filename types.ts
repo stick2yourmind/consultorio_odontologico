@@ -128,7 +128,7 @@ export interface PutAppointmentAPI {
   professionalId: string,
   specialtyId: string,
   user: {
-    dni: string,
+    dni: string | number,
     email: string,
     fullName: string,
     phone: string
