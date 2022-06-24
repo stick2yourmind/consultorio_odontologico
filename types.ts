@@ -120,8 +120,6 @@ export type FetchedSpecialtyStep = [SpecialtyData[], ErrorUseAxios, LoadingUseAx
 export type FetchedProfessionalStep = [ProfessionalData[], ErrorUseAxios, LoadingUseAxios]
 // Returned type from useAxios, when fetching /appointments endpoint
 export type FetchedAppointmentsStep = [AppointmentsData[], ErrorUseAxios, LoadingUseAxios]
-// Returned type from useAxios, when fetching /appointments/:id endpoint
-export type FetchedFormAppointmentStep = [FormAppointmentData, ErrorUseAxios, LoadingUseAxios]
 
 // --------------- Types used at useAxiosFunction -----------------
 
@@ -156,3 +154,6 @@ export type ReturnLoadUseAxiosFn = boolean
 export type CtrlUseAxiosFn = AbortController
 export type ReturnUseAxiosFn = (configObj: AxiosFetchParams) => Promise<void>
 export type ReturnUseAxiosFunction = [ReturnRespUseAxiosFn, ReturnErrUseAxiosFn, ReturnLoadUseAxiosFn, ReturnUseAxiosFn]
+
+// Returned type from useAxiosFunction, when fetching /appointments/:id endpoint
+export type FetchedFormAppointmentStep = [ResPutAppointmentAPI, ReturnErrUseAxiosFn, ReturnLoadUseAxiosFn, ReturnUseAxiosFn]
