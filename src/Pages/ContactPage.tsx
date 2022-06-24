@@ -22,7 +22,7 @@ const ContactPage = () => {
         <div className="form-container">
           {
           !isFormSubmitted
-            ? <Form handleSubmit={handleSubmit}/>
+            ? <Form handleSubmit={handleSubmit} confirmSubmit={setFormSubmitted}/>
             : <div id="form-success">
                 <img id='form-success-img' src={checked} alt=""/>
                 <p id='form-success-msg'> Mensaje enviado </p>

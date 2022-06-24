@@ -57,7 +57,8 @@ export interface FormContactPageValues{
 }
 
 export interface FormContactPageType {
-  handleSubmit?: (e: React.FormEvent<HTMLFormElement>)=> void
+  handleSubmit?: (e: React.FormEvent<HTMLFormElement>)=> void,
+  confirmSubmit: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export interface Data{

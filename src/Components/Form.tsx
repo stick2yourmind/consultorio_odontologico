@@ -1,3 +1,4 @@
+import React from 'react'
 import { Formik, Form as FormikForm } from 'formik'
 import TextField from '../Components/TextField'
 import TextAreaField from './TextAreaField'
@@ -13,7 +14,7 @@ const initForm = {
   message: ''
 }
 
-export const Form:React.FC<FormContactPageType> = () => {
+export const Form:React.FC<FormContactPageType> = ({ confirmSubmit }) => {
   const onSubmitHandler = (values:FormContactPageValues) => {
     const formData = {
       firstName: values.firstName,
@@ -23,6 +24,8 @@ export const Form:React.FC<FormContactPageType> = () => {
       message: values.message
     }
     console.log(formData)
+    console.log('Confirmando')
+    confirmSubmit(true)
   }
 
   return (
