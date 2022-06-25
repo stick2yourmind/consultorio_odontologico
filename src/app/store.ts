@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import appointmentReducer from './features/appointment/appointmentSlice'
+import thirdStepReducer from './features/appointment/thirdStepSlice'
 
 export const store = configureStore({
   reducer: {
-    appointment: appointmentReducer
+    appointment: appointmentReducer,
+    thirdStep: thirdStepReducer
   }
 })
 

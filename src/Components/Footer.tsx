@@ -24,7 +24,7 @@ const Footer = () => {
               src={whatsapp}
             />
         </a>
-        <a className='footer-link' href='tel:+5449999999999'
+        <a className='footer-link' href='tel:499999999999'
         >
         <img
               alt='phone: 4999-9999-9999'
@@ -35,7 +35,7 @@ const Footer = () => {
         <a className='footer-link' href='mailto:consultorio.dental.mini@gmail.com'
         >
         <img
-              alt='phone: 4999-9999-9999'
+              alt='email: consultorio.dental.mini@gmail.com'
               className='footer-link-img'
               src={email}
             />

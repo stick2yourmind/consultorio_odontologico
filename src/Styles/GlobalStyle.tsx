@@ -26,4 +26,8 @@ export default createGlobalStyle`
   color: aliceblue;
   background: #147356;
 }
+.errMsg{
+  font-size: 2rem;
+  font-weight:800;
+}
 `

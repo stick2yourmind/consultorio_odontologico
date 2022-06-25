@@ -8,6 +8,21 @@ const dayName = [
   'Viernes',
   'Sabado'
 ]
+export enum Days{
+  Sunday,
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday
+}
+export const getDay = (date: Date | string):(Days | undefined) => {
+  if (date) {
+    const day = new Date(date)
+    return day.getDay()
+  }
+}
 
 export const getDayName = (date: Date | null) => {
   if (date) {

@@ -383,10 +383,16 @@ export const CarouselContainer = styled.div`
     padding: 1rem;
     border-radius: 0.2rem;
     font-size: 1.5rem;
+    font-weight: 700;
     transition: all 0.2s ease-in-out;
   }
   .card-appointment-filter-button:hover {
     transform: scale(1.1);
+  }
+  .card-appointment-filter-button.disabled{
+    background: hsl(10, 10%, 10%);
+    border-color: hsl(10, 10%, 10%);
+    color: aliceblue;
   }
   .card-appointment-move{
     grid-column: 1/2;
@@ -398,18 +404,24 @@ export const CarouselContainer = styled.div`
     gap: 3rem;
   }
   .card-appointment-move-button{
-    background-color: #004147;
     border: 0.2rem solid black;
     padding: 1rem 1.3rem;
     font-size: 1.1rem;
     border-radius: 0.3rem;
-    color: aliceblue;
     font-weight: 700;
     transition: all 0.2s ease-in-out;
+    background: transparent;
+    color: hsl(10, 10%, 10%);
   }
   .card-appointment-move-button:hover {
     background: hsl(169.9, 79%, 42.9%);
     border-color: hsl(169.9, 79%, 42.9%);
+  }
+  
+  .card-appointment-move-button:disabled {
+    background: hsl(10, 10%, 10%);
+    border-color: hsl(10, 10%, 10%);
+    color: aliceblue;
   }
   #card-formContact-container{
     align-self: start;
