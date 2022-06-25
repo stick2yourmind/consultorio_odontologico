@@ -16,26 +16,29 @@ const ThirdStep = () => {
   console.log('groupedAppointments.length')
   console.log(groupedAppointments.length)
   return (
-    <div id="card-appointment-container">
-      <div className='card-appointment-filter'>
-        <button className='card-appointment-filter-button'>Lunes</button>
-        <button className='card-appointment-filter-button'>Martes</button>
-        <button className='card-appointment-filter-button'>Miercoles</button>
-        <button className='card-appointment-filter-button'>Jueves</button>
-        <button className='card-appointment-filter-button'>Viernes</button>
+    <>
+      <h3 className='step-title'>Ingrese un turno disponible</h3>
+      <div id="card-appointment-container">
+        <div className='card-appointment-filter'>
+          <button className='card-appointment-filter-button'>Lunes</button>
+          <button className='card-appointment-filter-button'>Martes</button>
+          <button className='card-appointment-filter-button'>Miercoles</button>
+          <button className='card-appointment-filter-button'>Jueves</button>
+          <button className='card-appointment-filter-button'>Viernes</button>
+        </div>
+        <div className='card-appointment-days'>
+          {loading && <p>Loading...</p>}
+          {!loading && error && <p className="errMsg">{error}</p>}
+          {!loading && !error && groupedAppointments.map((gapp) =>
+            <CardAppointment dates={gapp} key={gapp?.at(-1)?._id}/>)
+          }
+        </div>
+        <div className='card-appointment-move'>
+          <button className="card-appointment-move-button">Turnos anteriores</button>
+          <button className="card-appointment-move-button">Turnos siguientes</button>
+        </div>
       </div>
-      <div className='card-appointment-days'>
-        {loading && <p>Loading...</p>}
-        {!loading && error && <p className="errMsg">{error}</p>}
-        {!loading && !error && groupedAppointments.map((gapp) =>
-          <CardAppointment dates={gapp} key={gapp?.at(-1)?._id}/>)
-        }
-      </div>
-      <div className='card-appointment-move'>
-        <button className="card-appointment-move-button">Turnos anteriores</button>
-        <button className="card-appointment-move-button">Turnos siguientes</button>
-      </div>
-    </div>
+    </>
   )
 }
 

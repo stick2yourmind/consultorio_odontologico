@@ -16,7 +16,7 @@ const FifthStep = () => {
           ${getMonth(data.appointment)}/
           ${getYear(data.appointment)} a las 
           ${getHour(data.appointment)}:
-          ${getMinute(data.appointment)}`}</p>
+          ${getMinute(data.appointment)} hs`}</p>
         <img className='card-confirmationMsg-img' src={okSvg} alt="confirmation image" />
       </div>
     </div>

@@ -18,23 +18,26 @@ const SecondStep = () => {
   const dispatch = useDispatch()
   const nextHandler = (data:PartialData = null) => dispatch(forward(data))
   return (
-  <div id="card-professional-container">
+  <>
+    <h3 className='step-title'>Seleccione su profesional</h3>
+    <div id="card-professional-container">
 
-    {loading && <p>Loading...</p>}
+      {loading && <p>Loading...</p>}
 
-    {!loading && error && <p className="errMsg">{error}</p>}
+      {!loading && error && <p className="errMsg">{error}</p>}
 
-    {!loading && !error && professionals
-      ?.map(professional =>
-        <MinimalistCard
-          img={professional.img}
-          title={professional.name}
-          variant={imgFirstMCardVariant}
-          key={professional._id}
-          onClick={() => nextHandler({ professional: professional._id })}
-        />)}
+      {!loading && !error && professionals
+        ?.map(professional =>
+          <MinimalistCard
+            img={professional.img}
+            title={professional.name}
+            variant={imgFirstMCardVariant}
+            key={professional._id}
+            onClick={() => nextHandler({ professional: professional._id })}
+          />)}
 
-  </div>
+    </div>
+  </>
   )
 }
 

@@ -2,9 +2,12 @@ import FormAppointment from '../FormAppointment'
 
 const FourthStep = () => {
   return (
-    <div id="card-formContact-container">
-      <FormAppointment />
-    </div>
+    <>
+      <h3 className='step-title'>Ingrese los datos de contacto</h3>
+      <div id="card-formContact-container">
+        <FormAppointment />
+      </div>
+    </>
   )
 }
 

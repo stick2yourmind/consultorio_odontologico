@@ -303,6 +303,7 @@ export const CarouselContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    min-height: 80%;
     gap: 2rem;
   }
   #step-slider-forward{
