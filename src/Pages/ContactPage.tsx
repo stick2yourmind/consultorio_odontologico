@@ -35,16 +35,6 @@ const ContactPage = () => {
           <h4 className="contact-info">Email: consultorio.dental.mini@gmail.com</h4>
           <h4 className="contact-info">Whatsapp: 15688888888888</h4>
         </div>
-        {/*
-        <Form/>
-        <div onClick={() => { setModal(Boolean(isModal === false)) }}>Abrir Modal</div>
-        {isModal && (
-          <Modal.Background >
-            <Modal.Content>
-              <p> Contenido de modal </p>
-            </Modal.Content>
-          </Modal.Background>
-        )} */}
       </Contact>
   )
 }
