@@ -57,7 +57,7 @@ const FormAppointment = () => {
               <button className='form-body-btn' type="submit">Confirmar</button>
           </Form>
       </Formik>
-      {!loading && error && <p>{`Un error ha ocurrido, reintente nuevamente: ${error}`}</p>}
+      {!loading && error && <p className='errMsg'>{`Un error ha ocurrido, reintente nuevamente: ${error}`}</p>}
       </>
     </FormAppointmentContainer>
   )

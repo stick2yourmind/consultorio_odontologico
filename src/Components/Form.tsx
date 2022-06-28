@@ -1,33 +1,43 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Formik, Form as FormikForm } from 'formik'
 import TextField from '../Components/TextField'
 import TextAreaField from './TextAreaField'
 import { validationSchema } from '../Schemas/formSchema'
 import { FormContainer } from '../Styles/ComponentStyle'
-import { FormContactPageValues, FormContactPageType } from '../../types'
+import useAxiosFunction from '../hooks/useAxiosFunction'
+import axiosDB from '../app/api/axiosDB'
+import { FormContactPageValues, FormContactPageType, FetchedFormContactPage } from '../../types'
 
 const initForm = {
-  firstName: '',
-  lastName: '',
-  phoneNumber: '',
+  name: '',
+  phone: '',
   email: '',
   message: ''
 }
 
 export const Form:React.FC<FormContactPageType> = ({ confirmSubmit }) => {
+  const [response, error, loading, axiosFetch]:FetchedFormContactPage = useAxiosFunction()
   const onSubmitHandler = (values:FormContactPageValues) => {
-    const formData = {
-      firstName: values.firstName,
-      lastName: values.lastName,
-      phoneNumber: values.phoneNumber,
-      email: values.email,
-      message: values.message
-    }
-    console.log(formData)
+    console.log(values)
+    axiosFetch({
+      axiosInstance: axiosDB,
+      method: 'post',
+      url: '/contactMessages',
+      requestConfig: {
+        name: values.name,
+        phone: values.phone,
+        email: values.email,
+        message: values.message
+      }
+    })
     console.log('Confirmando')
-    confirmSubmit(true)
   }
-
+  useEffect(() => {
+    // Verifying no error response to confirm submit
+    console.log(response)
+    !loading && (response?.error === false) && confirmSubmit(true)
+  }
+  , [response, error, loading])
   return (
     <FormContainer>
       <h2 className='form-title'>Formulario de contacto</h2>
@@ -37,12 +47,12 @@ export const Form:React.FC<FormContactPageType> = ({ confirmSubmit }) => {
           onSubmit={onSubmitHandler}
       >
           <FormikForm className='form-body'>
-              <TextField label='Nombre' name='firstName' type='text' placeholder="Nombre" focus/>
-              <TextField label='Apellido' name='lastName' type='text' placeholder="Apellido"/>
-              <TextField label='Telefono' name='phoneNumber' type='tel' placeholder="Telefono"/>
+              <TextField label='Nombre' name='name' type='text' placeholder="Nombre" focus/>
+              <TextField label='Telefono' name='phone' type='tel' placeholder="Telefono"/>
               <TextField label='Email' name='email' type='email' placeholder="Email"/>
               <TextAreaField label='Mensaje' name='message' type='text' placeholder="Mensaje"/>
               <button className='form-body-btn' type='submit'>Enviar</button>
+              {!loading && error && <p className='errMsg'>{`Un error ha ocurrido, reintente nuevamente: ${error}`}</p>}
           </FormikForm>
       </Formik>
     </FormContainer>

@@ -5,10 +5,6 @@ import { Form } from '../Components/Form'
 
 const ContactPage = () => {
   const [isFormSubmitted, setFormSubmitted] = useState< boolean >(false)
-  const handleSubmit = () => {
-    console.log('Enviado')
-    setFormSubmitted(true)
-  }
   return (
       <Contact style={{ background: `url(${new URL('../assets/img/contact-background.jpg', import.meta.url)})`, backgroundSize: 'cover' }}>
         <div className='map-container'>
@@ -22,7 +18,7 @@ const ContactPage = () => {
         <div className="form-container">
           {
           !isFormSubmitted
-            ? <Form handleSubmit={handleSubmit} confirmSubmit={setFormSubmitted}/>
+            ? <Form confirmSubmit={setFormSubmitted}/>
             : <div id="form-success">
                 <img id='form-success-img' src={checked} alt=""/>
                 <p id='form-success-msg'> Mensaje enviado </p>

@@ -49,9 +49,8 @@ export interface FormValues{
   email: string
 }
 export interface FormContactPageValues{
-  firstName: string,
-  lastName: string,
-  phoneNumber: string,
+  name: string,
+  phone: string,
   email: string,
   message: string
 }
@@ -133,14 +132,20 @@ export interface PutAppointmentAPI {
     fullName: string,
     phone: string
   }
+}
 
+export interface PostContactMessageAPI {
+  name: string,
+  phone: string,
+  email: string,
+  message: string
 }
 
 export interface AxiosFetchParams{
   axiosInstance:AxiosInstance,
   method: 'get' | 'post' | 'put' | 'delete',
   url: string,
-  requestConfig?:PutAppointmentAPI
+  requestConfig?:PutAppointmentAPI | PostContactMessageAPI
 }
 export interface ResPutAppointmentAPI {
     data: {
@@ -158,3 +163,4 @@ export type ReturnUseAxiosFunction = [ReturnRespUseAxiosFn, ReturnErrUseAxiosFn,
 
 // Returned type from useAxiosFunction, when fetching /appointments/:id endpoint
 export type FetchedFormAppointmentStep = [ResPutAppointmentAPI, ReturnErrUseAxiosFn, ReturnLoadUseAxiosFn, ReturnUseAxiosFn]
+export type FetchedFormContactPage = [ResPutAppointmentAPI, ReturnErrUseAxiosFn, ReturnLoadUseAxiosFn, ReturnUseAxiosFn]

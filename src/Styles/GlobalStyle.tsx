@@ -27,7 +27,10 @@ export default createGlobalStyle`
   background: #147356;
 }
 .errMsg{
-  font-size: 2rem;
-  font-weight:800;
+  font-size: 1rem;
+  font-weight: 800;
+  background-color: #7B1E2C;
+  color: aliceblue;
+  padding: 0.2rem;
 }
 `

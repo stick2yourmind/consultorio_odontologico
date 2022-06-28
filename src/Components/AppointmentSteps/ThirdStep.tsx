@@ -24,16 +24,16 @@ const ThirdStep = () => {
   const enableNext = useSelector((state:RootState) => state.thirdStep.enableNext)
   const enablePrevious = useSelector((state:RootState) => state.thirdStep.enablePrevious)
   const disabledDays = useSelector((state:RootState) => state.thirdStep.disabledDays)
-  const [appointments2, error, loading]:FetchedAppointmentsStep = useAxios({
+  const [appointments, error, loading]:FetchedAppointmentsStep = useAxios({
     axiosInstance: axiosDB,
     method: 'get',
     url: '/appointments'
   })
-  const groupedAppointments = groupByDay(appointments2)
+  const groupedAppointments = groupByDay(appointments)
   useEffect(() => {
     dispatch(setGroupedAppointments([...groupedAppointments]))
   }
-  , [appointments2])
+  , [appointments])
   return (
     <>
       <h3 className='step-title'>Ingrese un turno disponible</h3>
