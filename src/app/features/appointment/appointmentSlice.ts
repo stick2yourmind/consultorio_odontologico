@@ -1,4 +1,4 @@
-import { createSlice, current } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 export enum appointmentSteps {
   specialty,
@@ -51,27 +51,19 @@ export const appointmentSlice = createSlice({
       if (action.payload) {
         state.data = { ...state.data, ...action.payload }
       }
-      console.log('current state')
-      console.log(current(state))
     },
     backward: (state, action) => {
       (state.step > appointmentSteps.specialty) && (state.step -= 1)
       if (action.payload) {
         state.data = { ...state.data, ...action.payload }
       }
-      console.log('current state')
-      console.log(current(state))
     },
     setStep: (state, action) => {
       state.step = action.payload
-      console.log('current state')
-      console.log(current(state))
     },
     reset: (state) => {
       state.step = initialState.step
       state.data = initialState.data
-      console.log('current state')
-      console.log(current(state))
     },
     update: (state, action) => {
       state.data = { ...state.data, ...action.payload }

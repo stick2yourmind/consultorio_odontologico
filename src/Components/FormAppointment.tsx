@@ -36,7 +36,6 @@ const FormAppointment = () => {
   }
   useEffect(() => {
     // Verifying no error response to continue to next step
-    console.log(responseData)
     !loading && (responseData?.error === false) && dispatch(forward(null))
   }
   , [responseData, error, loading])

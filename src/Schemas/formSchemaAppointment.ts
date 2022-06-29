@@ -14,7 +14,6 @@ const appointmentSchema = Yup.object({
     .test('¿Es positivo?',
       'DNI invalido, debe ser número positivo',
       (value) => {
-        console.log('before')
         if (value && !Number.isNaN(value) && value > 0) return true
         return false
       })

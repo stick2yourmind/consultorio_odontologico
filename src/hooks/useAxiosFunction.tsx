@@ -18,8 +18,6 @@ const useAxiosFunction = ():ReturnUseAxiosFunction => {
       requestConfig = {}
     } = configObj
 
-    console.log('configObj')
-    console.log(configObj)
     try {
       setLoading(true)
       const ctrl = new AbortController()
@@ -27,8 +25,6 @@ const useAxiosFunction = ():ReturnUseAxiosFunction => {
       const res = await axiosInstance[method](url, {
         ...requestConfig
       })
-      console.log('res.data useAxiosFn')
-      console.log(res.data)
       setResponse(res.data)
     } catch (err) {
       setError((err as Error).message)

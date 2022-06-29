@@ -18,7 +18,6 @@ const initForm = {
 export const Form:React.FC<FormContactPageType> = ({ confirmSubmit }) => {
   const [response, error, loading, axiosFetch]:FetchedFormContactPage = useAxiosFunction()
   const onSubmitHandler = (values:FormContactPageValues) => {
-    console.log(values)
     axiosFetch({
       axiosInstance: axiosDB,
       method: 'post',
@@ -30,11 +29,9 @@ export const Form:React.FC<FormContactPageType> = ({ confirmSubmit }) => {
         message: values.message
       }
     })
-    console.log('Confirmando')
   }
   useEffect(() => {
     // Verifying no error response to confirm submit
-    console.log(response)
     !loading && (response?.error === false) && confirmSubmit(true)
   }
   , [response, error, loading])

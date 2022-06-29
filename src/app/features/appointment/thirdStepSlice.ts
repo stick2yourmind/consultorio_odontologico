@@ -75,8 +75,6 @@ export const thirdStepSlice = createSlice({
       ((3 + state.iteration * 3) >= state.lengthGroupedAppointments)
         ? (state.enableNext = false)
         : (state.enableNext = true)
-      console.log('previousAppointments')
-      console.log(current(state))
     },
     nextAppointments: (state) => {
       if ((3 + state.iteration * 3) >= state.lengthGroupedAppointments) state.enableNext = false
@@ -88,8 +86,6 @@ export const thirdStepSlice = createSlice({
           : (state.enableNext = true)
       }
       (!state.iteration) ? (state.enablePrevious = false) : (state.enablePrevious = true)
-      console.log('nextAppointments')
-      console.log(current(state))
     },
     daySelector: (state, action) => {
       const exists = state.disabledDays.indexOf(action.payload)

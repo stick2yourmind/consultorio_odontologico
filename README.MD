@@ -8,7 +8,7 @@ How to use:
 // No import needed
 
 const Component = () => {
-  console.log(import.meta.env.VITE_BASE_URL)
+  const baseUrl = import.meta.env.VITE_BASE_URL
   return (
     <>
       ...
