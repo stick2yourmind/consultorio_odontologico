@@ -14,21 +14,16 @@ function App () {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <BrowserRouter basename={import.meta.env.BASE_URL}>
-                <Header />
-                    <Routes>
-                        <Route path="/" element={<HomePage/>} />
-                        <Route path="/contacto" element={<ContactPage/>} />
-                        <Route path="/turnos" element={<AppointmentsPage/>} />
-                        <Route path="/turnos/:esp" element={<AppointmentsPage/>} />
-                        {/* <Route path="/productos/:categoryId" element={<ItemListContainer />}  />
-            <Route path="/detalle/:itemId" element={<ItemDetailContainer />}  />
-            <Route path="/cart" element={<Cart />}  />
-            <Route path="/contact" element={<Contact />}  />
-             */}
-                        <Route path='*' element={ <Navigate to='/'/> } />
-                    </Routes>
-                <Footer/>
-            </BrowserRouter>
+        <Header />
+          <Routes>
+              <Route path="/" element={<HomePage/>} />
+              <Route path="/contacto" element={<ContactPage/>} />
+              <Route path="/turnos" element={<AppointmentsPage/>} />
+              <Route path="/turnos/:esp" element={<AppointmentsPage/>} />
+              <Route path='*' element={ <Navigate to='/'/> } />
+          </Routes>
+        <Footer/>
+    </BrowserRouter>
     </ThemeProvider>
   )
 }

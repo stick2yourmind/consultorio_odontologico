@@ -25,5 +25,16 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
+    'max-len': ['warn', {
+      code: 100,
+      ignoreComments: true,
+      ignoreTrailingComments: true,
+      ignoreRegExpLiterals: true
+    }]
+  },
+  settings: {
+    react: {
+      version: 'detect'
+    }
   }
 }

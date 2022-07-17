@@ -1,5 +1,4 @@
 import { imgFirstMCardVariant } from '../../Styles/ComponentStyle'
-// import { dentalPlaqueProfessionals } from '../../assets/mocks/professionals'
 import MinimalistCard from '../../Components/MinimalistCard'
 import { useDispatch, useSelector } from 'react-redux'
 import { forward } from '../../app/features/appointment/appointmentSlice'
@@ -9,7 +8,9 @@ import axiosDB from '../../app/api/axiosDB'
 import { RootState } from '../../app/store'
 
 const SecondStep = () => {
-  const specialty = useSelector((state:RootState) => state.appointment.data.specialty)
+  const specialty = useSelector(
+    (state:RootState) => state.appointment.data.specialty
+  )
   const [professionals, error, loading]:FetchedProfessionalStep = useAxios({
     axiosInstance: axiosDB,
     method: 'get',

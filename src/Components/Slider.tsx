@@ -23,18 +23,21 @@ interface movementTypeProps {
   children: React.ReactNode
 }
 
-const Slider:React.FunctionComponent<movementTypeProps> = ({ back, next, backHandler, nextHandler, children }) => {
-  return (
-    <CarouselContainer>
-      {back && <img className='step-slider' id='step-slider-backward' src={stepSliderBackward} alt="Volver un paso anterior"
-                onClick={() => backHandler()}
+const Slider:React.FunctionComponent<movementTypeProps> =
+  ({ back, next, backHandler, nextHandler, children }) => {
+    return (
+      <CarouselContainer>
+        {back &&
+          <img className='step-slider' id='step-slider-backward' src={stepSliderBackward}
+            alt="Volver un paso anterior" onClick={() => backHandler()}
           />}
-      {children}
-      {next && <img className='step-slider' id='step-slider-forward' src={stepSliderBackward} alt="Volver un paso anterior"
-                onClick={() => nextHandler()}
-              />}
-    </CarouselContainer>
-  )
-}
+        {children}
+        {next &&
+          <img className='step-slider' id='step-slider-forward' src={stepSliderBackward}
+            alt="Volver un paso anterior" onClick={() => nextHandler()}
+          />}
+      </CarouselContainer>
+    )
+  }
 
 export default Slider

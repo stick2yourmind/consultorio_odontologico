@@ -6,7 +6,12 @@ import { Form } from '../Components/Form'
 const ContactPage = () => {
   const [isFormSubmitted, setFormSubmitted] = useState< boolean >(false)
   return (
-      <Contact style={{ background: `url(${new URL('../assets/img/contact-background.jpg', import.meta.url)})`, backgroundSize: 'cover' }}>
+      <Contact style={{
+        background: `url(${new URL(
+        '../assets/img/contact-background.jpg',
+        import.meta.url)})`,
+        backgroundSize: 'cover'
+      }}>
         <div className='map-container'>
           <iframe
           id="map-canvas"

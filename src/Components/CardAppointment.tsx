@@ -15,7 +15,8 @@ const CardAppointment:React.FC<CardAppointmentProps> = ({ dates }) => {
   return (
     <CardAppointmentContainer>
       <h6 className='card-appointment-days-item-title'>
-        {`${getDayName(dates[0].date)} ${getDate(dates[0].date)}/${1 + (getMonth(dates[0].date) || 0)}`}
+        {`${getDayName(dates[0].date)} ${getDate(dates[0].date)}/
+        ${1 + (getMonth(dates[0].date) || 0)}`}
       </h6>
       {
         dates.map((data) =>

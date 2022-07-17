@@ -12,7 +12,8 @@ export const Nav = styled.nav<{ scrolled: boolean }>`
   /* background: #161429; */
   /* background: hsl(162deg 79% 53% / 81%); */
   // background: #e6448d,
-  background:  ${({ scrolled }) => (scrolled ? 'rgba(40, 230, 173, 0.6)' : 'rgba(40, 230, 173, 1)')};
+  background:  ${({ scrolled }) =>
+    (scrolled ? 'rgba(40, 230, 173, 0.6)' : 'rgba(40, 230, 173, 1)')};
   padding: 1.5rem 4rem;
   
   .navbar-brand{
@@ -452,11 +453,17 @@ export const CarouselContainer = styled.div`
     align-self: center;
   }
 `
-type CardTitleVariant = Pick<CSS.Properties, 'fontSize' | 'padding' | 'fontWeight' | 'gridColumn' | 'gridRow'>;
+type CardTitleVariant = Pick<CSS.Properties,
+  'fontSize' | 'padding' | 'fontWeight' | 'gridColumn' | 'gridRow'
+ >
 
-type CardImgVariant = Pick<CSS.Properties, 'width' | 'borderRadius' | 'gridColumn' | 'gridRow'>;
+type CardImgVariant = Pick<CSS.Properties,
+    'width' | 'borderRadius' | 'gridColumn' | 'gridRow'
+  >;
 
-export type CardVariant = Pick<CSS.Properties, 'display' | 'gridTemplateColumns' | 'gridTemplateRows'> & {
+export type CardVariant = Pick<CSS.Properties,
+    'display' | 'gridTemplateColumns' | 'gridTemplateRows'
+  > & {
   title: CardTitleVariant,
   img: CardImgVariant,
   gridTemplateColumns: CSS.Properties,
@@ -512,7 +519,9 @@ export const MinimalistCardStyle = styled.div<MinimalistCardStyleProps>`
   border-radius: 2rem;
   align-items: center;
   justify-items: center;
-  box-shadow: 7px 14px 19px -7px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+  box-shadow: 7px 14px 19px -7px rgba(0,0,0,0.1),
+    0px 10px 15px -3px rgba(0,0,0,0.1),
+    0px 10px 15px -3px rgba(0,0,0,0.1);
   transition: all 0.4s ease;
   &:hover{
     transform: scale(1.1)

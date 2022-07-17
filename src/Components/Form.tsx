@@ -49,7 +49,9 @@ export const Form:React.FC<FormContactPageType> = ({ confirmSubmit }) => {
               <TextField label='Email' name='email' type='email' placeholder="Email"/>
               <TextAreaField label='Mensaje' name='message' type='text' placeholder="Mensaje"/>
               <button className='form-body-btn' type='submit'>Enviar</button>
-              {!loading && error && <p className='errMsg'>{`Un error ha ocurrido, reintente nuevamente: ${error}`}</p>}
+              {!loading && error &&
+                <p className='errMsg'>{`Un error ha ocurrido, reintente nuevamente: ${error}`}</p>
+              }
           </FormikForm>
       </Formik>
     </FormContainer>

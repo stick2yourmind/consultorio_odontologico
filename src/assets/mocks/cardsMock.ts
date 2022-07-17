@@ -24,7 +24,8 @@ export const cardsMock:CardType[] = [
   {
     img: new URL('../img/corona.jpg', import.meta.url).href,
     title: 'Diseño de protesis',
-    desc: 'Diseño de coronas protesis en porcelana, composite o de circonio; los implantes en titanio y las carillas en porcelana o composite'
+    desc: `Diseño de coronas protesis en porcelana, composite o de circonio.
+      Implantes en titanio y las carillas en porcelana o composite`
   },
   {
     img: new URL('../img/placa-oclusal.jpg', import.meta.url).href,

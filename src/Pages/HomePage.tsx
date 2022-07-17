@@ -4,7 +4,10 @@ import { Gallery } from '../Styles/ComponentStyle'
 import { cardsMock } from '../assets/mocks/cardsMock.js'
 
 const HomePage = () => {
-  const imgUrl = new URL('../assets/img/blanqueamiento-principal.jpg', import.meta.url).href
+  const imgUrl = new URL(
+    '../assets/img/blanqueamiento-principal.jpg',
+    import.meta.url
+  ).href
   return (
     <Home className="home">
       <div className='main-img-container'>

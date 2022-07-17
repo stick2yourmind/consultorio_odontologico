@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react'
 import { AxiosResponse } from 'axios'
-import { AxiosCfg, ErrorUseAxios, LoadingUseAxios, ApiResponse, ReturnUseAxios } from '../../types'
+import {
+  AxiosCfg, ErrorUseAxios, LoadingUseAxios, ApiResponse,
+  ReturnUseAxios
+} from '../../types'
 
 // type DataUseAxios = AxiosResponse<[]>['data']
 

@@ -49,14 +49,18 @@ const FormAppointment = () => {
           onSubmit={onSubmitHandler}
       >
           <Form className='form-body'>
-              <TextField label='fullName' name='fullName' type='text' placeholder="Nombre completo" focus />
+              <TextField label='fullName' name='fullName' type='text' placeholder="Nombre completo"
+                focus
+              />
               <TextField label='dni' name='dni' type='text' placeholder="DNI"/>
               <TextField label='email' name='email' type='email' placeholder="Email"/>
               <TextField label='phone' name='phone' type='tel' placeholder="Telefono"/>
               <button className='form-body-btn' type="submit">Confirmar</button>
           </Form>
       </Formik>
-      {!loading && error && <p className='errMsg'>{`Un error ha ocurrido, reintente nuevamente: ${error}`}</p>}
+      {!loading && error &&
+        <p className='errMsg'>{`Un error ha ocurrido, reintente nuevamente: ${error}`}</p>
+      }
       </>
     </FormAppointmentContainer>
   )

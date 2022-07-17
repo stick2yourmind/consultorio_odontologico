@@ -1,5 +1,5 @@
 import { getDay } from './../../../utils/date'
-import { createSlice, current } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 import { AppointmentsData } from '../../../../types'
 
 export enum Days{
@@ -105,5 +105,10 @@ export const thirdStepSlice = createSlice({
   }
 })
 
-export const { previousAppointments, nextAppointments, setGroupedAppointments, daySelector } = thirdStepSlice.actions
+export const {
+  previousAppointments,
+  nextAppointments,
+  setGroupedAppointments,
+  daySelector
+} = thirdStepSlice.actions
 export default thirdStepSlice.reducer

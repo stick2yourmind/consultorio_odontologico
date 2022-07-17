@@ -154,13 +154,29 @@ export interface ResPutAppointmentAPI {
   error: boolean,
   statusCode: number
 }
-export type ReturnRespUseAxiosFn = ResPutAppointmentAPI & FormAppointmentData & AppointmentsData[] & ProfessionalData[] & SpecialtyData[]
+export type ReturnRespUseAxiosFn = ResPutAppointmentAPI & FormAppointmentData
+  & AppointmentsData[] & ProfessionalData[] & SpecialtyData[]
 export type ReturnErrUseAxiosFn = string | false
 export type ReturnLoadUseAxiosFn = boolean
 export type CtrlUseAxiosFn = AbortController
 export type ReturnUseAxiosFn = (configObj: AxiosFetchParams) => Promise<void>
-export type ReturnUseAxiosFunction = [ReturnRespUseAxiosFn, ReturnErrUseAxiosFn, ReturnLoadUseAxiosFn, ReturnUseAxiosFn]
+export type ReturnUseAxiosFunction = [
+    ReturnRespUseAxiosFn,
+    ReturnErrUseAxiosFn,
+    ReturnLoadUseAxiosFn,
+    ReturnUseAxiosFn
+  ]
 
 // Returned type from useAxiosFunction, when fetching /appointments/:id endpoint
-export type FetchedFormAppointmentStep = [ResPutAppointmentAPI, ReturnErrUseAxiosFn, ReturnLoadUseAxiosFn, ReturnUseAxiosFn]
-export type FetchedFormContactPage = [ResPutAppointmentAPI, ReturnErrUseAxiosFn, ReturnLoadUseAxiosFn, ReturnUseAxiosFn]
+export type FetchedFormAppointmentStep = [
+  ResPutAppointmentAPI,
+  ReturnErrUseAxiosFn,
+  ReturnLoadUseAxiosFn,
+  ReturnUseAxiosFn
+]
+export type FetchedFormContactPage = [
+  ResPutAppointmentAPI,
+  ReturnErrUseAxiosFn,
+  ReturnLoadUseAxiosFn,
+  ReturnUseAxiosFn
+]

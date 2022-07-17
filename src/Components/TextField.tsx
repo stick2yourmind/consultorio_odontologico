@@ -12,7 +12,9 @@ const TextField:React.FC<TextFieldProps> = ({ name, type, placeholder, focus }) 
     <div className='TextFieldContainer'>
         {/* <label className='labelField' htmlFor={field.name}>{label}</label> */}
         <input className={`textField ${meta.touched && meta.error ? 'isInvalid' : ''} ` }
-            {...field} name={name} type={type} placeholder={placeholder} ref={focus ? inputRef : undefined} autoComplete='off'/>
+            {...field} name={name} type={type} placeholder={placeholder}
+            ref={focus ? inputRef : undefined} autoComplete='off'
+        />
         <div className='error-field-container'>
           <ErrorMessage className='error-field' name={field.name} component="p" />
         </div>
